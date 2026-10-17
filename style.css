@@ -86,3 +86,7 @@ html[lang=en] .chip{font-family:Arial,sans-serif}
 @media(max-width:640px){.hero-art{width:80%;--r:41cqw;margin:10px auto 30px}.chip{font-size:9.5px;padding:6px 9px;gap:5px}.chip svg{width:12px;height:12px}.core{width:36%;height:36%}.hero-in{gap:20px}.about-art{padding:26px}.outline-word{font-size:110px;letter-spacing:-9px}.big-asterisk{font-size:190px;top:60px}.contact h2{font-size:30px}.contact-bottom .button{width:100%;justify-content:space-between}.projects{gap:30px 10px}footer{justify-content:center;text-align:center}footer>*{flex-basis:auto}.section-head h2{font-size:27px}.hero-bottom{font-size:8px}}
 @media(max-width:380px){.chip>span{display:none}.chip{padding:8px}.chip svg{width:15px;height:15px}.hero h1{font-size:38px}}
 @media(prefers-reduced-motion:reduce){.ring,.cw{animation:none!important}}
+
+.project p.extra{color:var(--orange);font-weight:700;margin-top:3px}
+.projects .project:last-child:nth-child(3n+1){grid-column:2}
+@media(max-width:640px){.projects .project:last-child:nth-child(3n+1){grid-column:auto}.projects .project:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 5px)}}
