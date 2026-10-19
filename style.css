@@ -92,15 +92,24 @@ html[lang=en] .chip{font-family:Arial,sans-serif}
 @media(max-width:640px){.projects .project:last-child:nth-child(3n+1){grid-column:auto}.projects .project:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 5px)}}
 
 /* ===== Free business tools ===== */
-.tool-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:8px}
-.tool-card{min-width:0;display:flex;align-items:center;gap:12px;padding:17px 15px;border:1px solid var(--line);border-radius:15px;background:#fff;color:var(--ink);transition:transform .25s,border-color .25s,box-shadow .25s}
-.tool-card:hover{transform:translateY(-4px);border-color:#e8b9a4;box-shadow:0 15px 35px #48162512}
-.tool-icon{width:39px;height:39px;border-radius:12px;background:#f8ebe4;color:var(--orange);display:grid;place-items:center;flex:none}
-.tool-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.tool-copy{flex:1;min-width:0}.tool-copy strong{display:block;color:var(--ink);font-size:12px;font-weight:600;line-height:1.5}.tool-copy small{display:block;color:var(--muted);font-size:10px;line-height:1.6;margin-top:3px}
-.tool-card>b{font:13px Arial;color:var(--orange);flex:none}
-@media(max-width:1000px){.tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:560px){.tool-grid{grid-template-columns:1fr;gap:9px}.tool-card{padding:14px}}
+.tool-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:8px}
+.tool-card{min-width:0;display:flex;flex-direction:column;min-height:260px;padding:22px;border:1px solid var(--line);border-radius:18px;background:#fff;color:var(--ink);position:relative;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s}
+.tool-card:before{content:'';position:absolute;width:180px;height:180px;inset-inline-end:-95px;top:-105px;border-radius:50%;background:radial-gradient(circle,#f56b351c,transparent 68%);transition:transform .35s}
+.tool-card:hover{transform:translateY(-5px);border-color:#e8b9a4;box-shadow:0 16px 38px #48162512}
+.tool-card:hover:before{transform:scale(1.4)}
+.tool-top{display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;margin-bottom:18px}
+.tool-icon{width:52px;height:52px;border-radius:16px;background:#f8ebe4;color:var(--orange);display:grid;place-items:center;flex:none;transition:background .25s,color .25s}
+.tool-icon svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.tool-card:hover .tool-icon{background:var(--orange);color:#fff}
+.tool-tag{font-size:10px;font-weight:700;color:var(--orange);border:1px solid #f56b3555;background:#f56b3510;border-radius:99px;padding:2px 10px;line-height:1.7}
+.tool-card h3{font-size:16px;font-weight:600;margin:0 0 8px;position:relative}
+.tool-card p{font-size:12px;line-height:1.9;color:var(--muted);margin:0;position:relative}
+.tool-cta{margin-top:auto;padding-top:18px;display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;font-size:12px;font-weight:700;color:var(--orange)}
+.tool-cta:before{content:'';position:absolute;inset-inline:0;top:0;border-top:1px solid var(--line)}
+.tool-cta b{font:15px Arial;transition:transform .25s}
+.tool-card:hover .tool-cta b{transform:translate(3px,-3px)}
+@media(max-width:1000px){.tool-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.tool-card{min-height:240px}}
+@media(max-width:560px){.tool-grid{grid-template-columns:1fr;gap:10px}.tool-card{min-height:0;padding:18px}.tool-top{margin-bottom:12px}.tool-icon{width:46px;height:46px;border-radius:14px}.tool-icon svg{width:23px;height:23px}.tool-card p{font-size:11.5px}}
 
 /* Service tiles and linked details */
 .service-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:7px}
