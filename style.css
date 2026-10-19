@@ -186,3 +186,19 @@ html[lang=en] .chip{font-family:Arial,sans-serif}
 @media(max-width:1000px){.project{flex-basis:calc((100% - 36px)/3)}}
 @media(max-width:700px){.work-head{flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:34px}.work-count{align-items:flex-start;text-align:start;flex-direction:row;align-items:baseline;gap:10px}.work-count b{font-size:46px}.work-count span{margin:0}.projects{gap:12px}.project{flex-basis:calc((100% - 12px)/2);padding:34px 10px 20px;border-radius:18px}.project .logo-circle{width:min(112px,100%);margin-bottom:18px}.project h3{font-size:14px}.project p{font-size:10.5px}.project-no{top:12px;inset-inline-start:14px;font-size:10px}}
 @media(prefers-reduced-motion:reduce){.motion .reveal{opacity:1;translate:none;scale:none}}
+
+
+/* ===== v4: stronger entrance, icon line-draw, cursor spotlight ===== */
+.motion .service-card.reveal,.motion .tool-card.reveal,.motion .project.reveal{translate:0 56px;scale:.93;filter:blur(8px);transition:opacity 1s var(--ease) var(--d,0ms),translate 1s var(--ease) var(--d,0ms),scale 1s var(--ease) var(--d,0ms),filter .9s var(--ease) var(--d,0ms),transform .4s var(--ease),border-color .3s,box-shadow .4s,background .3s}
+.motion .service-card.reveal.visible,.motion .tool-card.reveal.visible,.motion .project.reveal.visible{translate:none;scale:none;filter:none}
+
+@keyframes drawIcon{from{stroke-dasharray:1;stroke-dashoffset:1}to{stroke-dasharray:1;stroke-dashoffset:0}}
+.motion .reveal.visible .tool-icon svg *,.motion .reveal.visible .service-icon svg *{animation:drawIcon 1.3s var(--ease) calc(var(--d,0ms) + .45s) backwards}
+
+.tool-tag{display:inline-flex;align-items:center;gap:6px}
+.tool-tag:before{content:'';width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulseDot 2.2s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 #f56b3566}50%{box-shadow:0 0 0 5px #f56b3500}}
+
+.tool-card:hover,.service-card:hover,.project:hover{background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),#f56b3520,transparent 72%),#fff}
+
+@media(prefers-reduced-motion:reduce){.motion .service-card.reveal,.motion .tool-card.reveal,.motion .project.reveal{opacity:1;translate:none;scale:none;filter:none}}
