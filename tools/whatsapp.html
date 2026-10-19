@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ckb" dir="rtl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#481625"><meta name="description" content="دروستکردنی لینکی واتساپ و QR بۆ بزنسەکەت بەخۆڕایی.">
+<title>دروستکەری لینکی واتساپ و QR | awa agency</title>
+<link rel="preload" href="../assets/fonts/rudawregular2.ttf" as="font" type="font/ttf" crossorigin>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
+<style>
+@font-face{font-family:Rudaw;src:url('../assets/fonts/rudawregular2.ttf') format('truetype');font-display:swap}
+:root{--wine:#481625;--orange:#f56b35;--paper:#f8f5ef;--muted:#786970;--line:#48162522}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 84% 5%,#fff 0,transparent 34%),var(--paper);color:var(--wine);font-family:Rudaw,Tahoma,Arial,sans-serif;line-height:1.9}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}button,a,input,select,textarea{outline-color:var(--orange)}
+.top{height:76px;padding:0 max(6%,calc((100% - 1160px)/2));display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.brand{font:bold 30px Arial;letter-spacing:-2px}.brand b{color:var(--orange)}.brand small{display:block;font:9px Arial;letter-spacing:4px;text-align:center}
+.back{font-size:14px}.wrap{width:min(920px,88%);margin:auto}
+.hero{text-align:center;padding:68px 0 32px}.tag{display:inline-flex;align-items:center;gap:8px;color:var(--orange);font-size:13px}.tag:before{content:'';width:7px;height:7px;border-radius:50%;background:var(--orange)}
+h1{font-size:clamp(32px,5vw,52px);line-height:1.45;margin:12px 0}.hero p{color:var(--muted);margin:0 auto;max-width:580px}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:clamp(22px,5vw,42px);box-shadow:0 24px 80px #4816250b;display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:start}
+label{display:block;font-size:14px;font-weight:bold;margin:0 0 7px}.hint{font-size:12px;color:var(--muted);margin:4px 0 18px}
+.phone-row{display:flex;gap:9px}.phone-row select{width:165px;flex:none}
+input,select,textarea{width:100%;border:1px solid #48162533;border-radius:12px;padding:12px 14px;background:#fff;color:var(--wine);min-height:50px}
+textarea{min-height:116px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px #f56b351c}
+.field{margin-bottom:21px}.count{text-align:left;font:11px Arial;color:var(--muted);margin-top:4px}
+.primary{border:0;background:var(--wine);color:white;padding:14px 22px;border-radius:99px;cursor:pointer;display:flex;justify-content:center;align-items:center;gap:12px;width:100%;transition:.2s}
+.primary:hover{background:#67223a;transform:translateY(-2px)}.primary span{color:#ff9b70}
+.result{margin-top:24px;padding:18px;border-radius:16px;background:#f8f5ef;border:1px solid var(--line);display:none}.result.show{display:block;animation:appear .35s ease-out}
+.result label{margin-bottom:9px}.url-row{display:flex;gap:8px}.url-row input{direction:ltr;text-align:left;font:13px Arial;min-width:0}.copy{border:1px solid var(--line);background:white;border-radius:11px;padding:0 15px;cursor:pointer;white-space:nowrap;color:var(--wine)}.copy:hover{border-color:var(--orange)}
+.actions{display:flex;gap:10px;margin-top:12px}.actions a,.actions button{flex:1;min-height:46px;border-radius:11px;display:flex;justify-content:center;align-items:center;gap:8px}.open{background:#16835b;color:white}.download{border:1px solid var(--line);background:white;color:var(--wine);cursor:pointer}
+.qrbox{background:#fbfaf7;border:1px solid var(--line);border-radius:19px;padding:20px;text-align:center;position:sticky;top:24px}
+.qrbox h2{font-size:18px;margin:0 0 5px}.qrbox p{font-size:12px;color:var(--muted);margin:0 0 18px}
+#qrcode{background:#fff;width:224px;height:224px;max-width:100%;margin:auto;border:9px solid white;border-radius:8px;display:grid;place-items:center}
+#qrcode:empty:after{content:'QR';font:bold 42px Arial;color:#48162516}
+#qrcode img,#qrcode canvas{max-width:100%;height:auto!important}
+.qr-note{font-size:11px!important;margin:16px 0 0!important}
+.privacy{font-size:12px;color:var(--muted);text-align:center;margin:22px auto 60px;max-width:650px}
+.privacy b{color:var(--wine)}
+footer{border-top:1px solid var(--line);padding:23px 6%;display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+[hidden]{display:none!important}
+@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(max-width:700px){.hero{padding:43px 0 24px}.card{grid-template-columns:1fr;gap:24px}.qrbox{position:static;grid-row:1}.qrbox h2{font-size:16px}#qrcode{width:190px;height:190px}.phone-row select{width:140px}.top{height:66px}.privacy{margin-bottom:40px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style></head>
+<body>
+<header class="top"><a class="brand" href="../index.html" aria-label="AWA Agency home">awa<b>.</b><small>AGENCY</small></a><a class="back" href="../index.html">↩ گەڕانەوە بۆ awa</a></header>
+<main class="wrap"><section class="hero"><span class="tag">ئامرازی بەخۆڕایی</span><h1>لینکی واتساپ و QR ـەکەت دروست بکە</h1><p>ژمارە و نامەکەت بنووسە؛ لینکی چاتی ڕاستەوخۆ و کۆدی QR ـی تایبەتت وەردەگریت.</p></section>
+<section class="card" aria-label="دروستکەری لینکی واتساپ">
+<form id="builder">
+<div class="field"><label for="number">ژمارەی واتساپ</label><div class="phone-row"><select id="country" aria-label="کۆدی وڵات"><option value="964" selected>🇮🇶 +964 عێراق</option><option value="44">🇬🇧 +44 بەریتانیا</option><option value="1">🇺🇸 +1 ئەمریکا</option><option value="971">🇦🇪 +971 ئیمارات</option><option value="90">🇹🇷 +90 تورکیا</option></select><input id="number" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="0770 000 0000" required></div><p class="hint">ژمارەکە بەبێ کۆدی وڵات بنووسە؛ وەک 0770…</p></div>
+<div class="field"><label for="message">نامەی سەرەتایی</label><textarea id="message" maxlength="300" placeholder="سڵاو، دەمەوێت زانیاری زیاتر وەربگرم."></textarea><div class="count"><span id="count">0</span>/300</div></div>
+<button class="primary" type="submit">دروستکردنی لینک و QR <span>↗</span></button>
+<div id="result" class="result" aria-live="polite"><label for="link">لینکی چاتی واتساپ</label><div class="url-row"><input id="link" readonly aria-label="لینکی واتساپ"><button class="copy" id="copy" type="button">کۆپی</button></div><div class="actions"><a id="open" class="open" target="_blank" rel="noopener">کردنەوەی واتساپ ↗</a><button id="download" class="download" type="button">داگرتنی QR ↓</button></div></div>
+</form>
+<aside class="qrbox"><h2>کۆدی QR ـی چاتەکەت</h2><p>کڕیار سکان دەکات، چاتی واتساپت دەکرێتەوە.</p><div id="qrcode" role="img" aria-label="کۆدی QR دوای داخڵکردنی ژمارە دروست دەبێت"></div><p class="qr-note">بۆ کارتی بزنس، پەیج یان مینۆکەت بەکاری بهێنە.</p></aside>
+</section><p class="privacy">🔒 <b>تایبەتمەندی:</b> ژمارە و نامەکەت لە وێبگەڕی خۆتدا بەکاردهێنرێن؛ بۆ هیچ سێرڤەرێک نانێردرێن.</p></main>
+<footer><span>© <span id="year"></span> AWA Agency</span><a href="mailto:contact@awaagency.net">contact@awaagency.net</a></footer>
+<script>
+const form=document.getElementById('builder'),number=document.getElementById('number'),message=document.getElementById('message'),select=document.getElementById('country'),result=document.getElementById('result'),link=document.getElementById('link'),qr=document.getElementById('qrcode'),copy=document.getElementById('copy');
+document.getElementById('year').textContent=new Date().getFullYear();
+message.addEventListener('input',()=>document.getElementById('count').textContent=message.value.length);
+function toLatin(s){return s.replace(/[٠-٩۰-۹]/g,c=>String('٠١٢٣٤٥٦٧٨٩'.indexOf(c)>=0?'٠١٢٣٤٥٦٧٨٩'.indexOf(c):'۰۱۲۳۴۵۶۷۸۹'.indexOf(c)))}
+function phoneDigits(){let n=toLatin(number.value).replace(/\D/g,'');if(n.startsWith('00'))n=n.slice(2);if(n.startsWith('0'))n=n.slice(1);if(!n.startsWith(select.value))n=select.value+n;return n}
+form.addEventListener('submit',e=>{e.preventDefault();const n=phoneDigits();if(n.length<10||n.length>15){number.setCustomValidity('تکایە ژمارەیەکی دروستی واتساپ بنووسە.');number.reportValidity();return}number.setCustomValidity('');const text=message.value.trim();const url='https://wa.me/'+n+(text?'?text='+encodeURIComponent(text):'');link.value=url;document.getElementById('open').href=url;qr.replaceChildren();if(typeof QRCode==='undefined'){qr.textContent='QR لەم کاتەدا بەردەست نییە؛ لینکی چات بەکاربهێنە.';document.getElementById('download').disabled=true}else{document.getElementById('download').disabled=false;new QRCode(qr,{text:url,width:206,height:206,colorDark:'#481625',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M})}result.classList.add('show');document.getElementById('qrcode').setAttribute('aria-label','کۆدی QR بۆ لینکی واتساپ دروست کرا');});
+number.addEventListener('input',()=>number.setCustomValidity(''));
+copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(link.value);copy.textContent='کۆپی کرا ✓';setTimeout(()=>copy.textContent='کۆپی',1800)}catch{link.select();document.execCommand('copy');copy.textContent='کۆپی کرا ✓';setTimeout(()=>copy.textContent='کۆپی',1800)}});
+document.getElementById('download').addEventListener('click',()=>{const canvas=qr.querySelector('canvas');const img=qr.querySelector('img');const src=canvas?canvas.toDataURL('image/png'):img?.src;if(!src)return;const a=document.createElement('a');a.href=src;a.download='awa-whatsapp-qr.png';a.click()});
+</script></body></html>
