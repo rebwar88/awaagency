@@ -22,6 +22,8 @@ Services and project names: app.js.
 Colors, layout, animations and responsive rules: style.css.
 Logo images: assets/.
 Reduced-motion preferences are respected.
+After editing style.css or app.js, change the ?v= number after their names in index.html
+so visitors' browsers download the new files instead of using a cached copy.
 
 CONTACT
 contact@awaagency.net
